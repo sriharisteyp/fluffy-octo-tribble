@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+}
+.container {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+}
+.sun {
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+}
+.earth,.moon {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em; 
+    animation: orbit 36.5s linear infinite;   
+}
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em; 
+    animation: orbit 2.7s linear infinite;
+}
+.earth::before,
+.moon::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: aqua;    
+}
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+}
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="mercury"></div>
+        <div class="venues"></div>
+        <div class="earth">
+          <div class="moon"></div>
+        </div>
+        <div class="mars"></div>
+</body>
+</html>
+
+
+
+
+
+<html>
+<head>
+  <style>
+* {
+    cursor: none
+}
+body {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+.loading {
+    background-color: #FFF;
+    display: fixed
+}
+.loading img {
+    display: block;
+    min-height: 209px;
+    min-width: 200px;
+}
+.mouse {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: #fff782;
+    position: absolute;
+    animation: mouseAnimation .5s infinite ease-in-out alternate;
+    left: 0;
+    top: 0
+}
+@keyframes mouseAnimation {
+    from {
+        width: 25px;
+        height: 25px
+    }
+    to {
+        width: 15px;
+        height: 15px
+    }   
+}
+  </style>
+  </head>
+<body>
+  <div class="loading">
+    <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
+  </div>
+  <div class="mouse original"></div>
+  <script>
+          $(".loading").height($(window).height());
+$(".loading").width($(window).width()); 
+$(".loading img").css({
+    paddingTop: ($(".loading").height() - $(".loading img").height()) / 2,
+    paddingLeft: ($(".loading").width() - $(".loading img").width()) / 2
+});
+$(window).resize(function () {
+    "use strict";
+    $(".loading").height($(window).height());
+    $(".loading").width($(window).width());
+    $(".loading img").css({
+        paddingTop: ($(".loading").height() - $(".loading img").height()) / 2,
+        paddingLeft: ($(".loading").width() - $(".loading img").width()) / 2
+    }); 
+});
+$(window).mousemove(function (e) {
+    "use strict";
+    $(".original").css({
+        left: e.pageX - 16,
+        top: e.pageY - 16
+    }); 
+});
+$("body").on("click", function (e) {
+    "use strict";
+    $(".original").clone(true).appendTo("body").css({
+        left: e.pageX - 16,
+        top: e.pageY - 16
+    }).removeClass("original"); 
+});
+        </script>
+</body>

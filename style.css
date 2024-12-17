@@ -1,0 +1,46 @@
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.planet {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#sun {
+  background-color: yellow;
+  z-index: 2;
+  size: 300px;
+}
+
+#mercury {
+  background-color: gray;
+  top: 100px;
+  left: 200px;
+}
+
+#venus {
+  background-color: #e7a47d;
+  top: 150px;
+  left: 280px;
+}
+
+#earth {
+  background-color: #0077be;
+  top: 200px;
+  left: 380px;
+}
+
+#mars {
+  background-color: #ff6347;
+  top: 250px;
+  left: 480px;
+}
+/* Add styles for other planets */
